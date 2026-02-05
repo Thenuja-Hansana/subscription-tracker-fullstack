@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubTracker | Management Dashboard</title>
+    <!-- We'll create this CSS file next -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Subscription Tracker</h1>
+            <p>API Verification Dashboard</p>
+            <button id="logoutBtn" style="display:none; margin: 1rem auto; padding: 0.5rem 1rem; background: #ef4444;">Log Out</button>
+        </header>
+
+        <!-- AUTH SECTION -->
+        <div id="authContainer">
+            <main class="grid-container">
+                <section class="card">
+                    <h2>Login</h2>
+                    <form id="loginForm">
+                        <input type="email" id="loginEmail" placeholder="Email Address" required>
+                        <input type="password" id="loginPassword" placeholder="Password" required>
+                        <button type="submit">Sign In</button>
+                    </form>
+                </section>
+                <section class="card">
+                    <h2>Register</h2>
+                    <form id="registerForm">
+                        <input type="text" id="regName" placeholder="Full Name" required>
+                        <input type="email" id="regEmail" placeholder="Email Address" required>
+                        <input type="password" id="regPassword" placeholder="Password" required>
+                        <button type="submit">Sign Up</button>
+                    </form>
+                </section>
+            </main>
+        </div>
+
+        <!-- MAIN DASHBOARD (HIDDEN BY DEFAULT) -->
+        <div id="dashboardContainer" style="display:none;">
+            <main class="grid-container">
+                <!-- ADD SUBSCRIPTION SECTION -->
+                <section class="card">
+                    <h2>Add Subscription</h2>
+                    <form id="subForm">
+                        <input type="text" id="subName" placeholder="Service Name (e.g. Netflix)" required>
+                        <input type="number" id="subPrice" placeholder="Price" required>
+                        <select id="subFrequency">
+                            <option value="monthly">Monthly</option>
+                            <option value="yearly">Yearly</option>
+                        </select>
+                        <input type="date" id="subStartDate" required>
+                        <button type="submit">Add Subscription</button>
+                    </form>
+                </section>
+
+                <!-- DATA VIEW SECTION -->
+                <section class="card">
+                    <h2>Account Overview</h2>
+                    <div id="userInfo"></div>
+                    <button id="testEmailBtn" style="margin-top: 1rem; background: #6366f1;">Check Reminders Now</button>
+                    <p style="font-size: 0.8rem; color: #6b7280; margin-top: 0.5rem;">Click to scan database for renewals in 3 days.</p>
+                </section>
+
+                <section class="card full-width">
+                    <h2>3. Database Overview</h2>
+                    <div class="data-lists">
+                        <div class="list-group">
+                            <h3>Active Subscriptions</h3>
+                            <ul id="subList"></ul>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- We'll create this JS file last -->
+    <script src="script.js"></script>
+</body>
+
+</html>
