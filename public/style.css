@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
 :root {
-    --primary: #6366f1;
-    --background: #0f172a;
-    --card-bg: rgba(30, 41, 59, 0.7);
-    --text: #f8fafc;
-    --border: rgba(255, 255, 255, 0.1);
+    --primary: #ffffff;
+    --primary-invert: #000000;
+    --background: #050505;
+    --card-bg: #0f0f0f;
+    --text: #ffffff;
+    --text-muted: #a3a3a3;
+    --border: #333333;
+    --focus: #ffffff;
 }
 
 * {
@@ -13,11 +18,12 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, sans-serif;
+    font-family: 'Space Grotesk', -apple-system, sans-serif;
     background-color: var(--background);
     color: var(--text);
     line-height: 1.6;
     padding: 2rem;
+    -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -32,8 +38,24 @@ header {
 
 header h1 {
     font-size: 2.5rem;
-    color: var(--primary);
+    color: var(--text);
     margin-bottom: 0.5rem;
+    letter-spacing: -0.05em;
+    font-weight: 600;
+}
+
+header p {
+    color: var(--text-muted);
+}
+
+#logoutBtn {
+    background: transparent !important;
+    border: 1px solid var(--border) !important;
+    color: var(--text) !important;
+}
+#logoutBtn:hover {
+    background: var(--text) !important;
+    color: var(--background) !important;
 }
 
 .grid-container {
@@ -44,11 +66,10 @@ header h1 {
 
 .card {
     background: var(--card-bg);
-    backdrop-filter: blur(12px);
     border: 1px solid var(--border);
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    padding: 2.5rem;
+    border-radius: 4px;
+    box-shadow: none;
 }
 
 .full-width {
@@ -56,53 +77,89 @@ header h1 {
 }
 
 h2 {
-    margin-bottom: 1.5rem;
-    font-size: 1.25rem;
-    opacity: 0.9;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    color: var(--text);
+    font-weight: 500;
+    letter-spacing: -0.03em;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.25rem;
 }
 
 input,
 select {
-    padding: 0.8rem;
-    border-radius: 0.5rem;
+    padding: 1rem;
+    border-radius: 4px;
     border: 1px solid var(--border);
-    background: rgba(15, 23, 42, 0.5);
-    color: white;
+    background: var(--background);
+    color: var(--text);
     font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s ease;
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--focus);
+}
+
+input::placeholder {
+    color: var(--text-muted);
 }
 
 button {
-    padding: 0.8rem;
+    padding: 1rem;
     background: var(--primary);
-    color: white;
-    border: none;
-    border-radius: 0.5rem;
+    color: var(--primary-invert);
+    border: 1px solid var(--primary);
+    border-radius: 4px;
     cursor: pointer;
     font-weight: 600;
-    transition: transform 0.2s, background 0.2s;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.2s ease;
 }
 
 button:hover {
-    background: #4f46e5;
-    transform: translateY(-2px);
+    background: transparent;
+    color: var(--primary);
+}
+
+#testEmailBtn {
+    background: transparent !important;
+    color: var(--text) !important;
+    border: 1px solid var(--border) !important;
+}
+
+#testEmailBtn:hover {
+    background: var(--text) !important;
+    color: var(--background) !important;
 }
 
 .data-lists {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 2rem;
 }
 
+@media (min-width: 768px) {
+    .data-lists {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
 .list-group h3 {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    color: var(--primary);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+    font-weight: 500;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
 }
 
 ul {
@@ -110,16 +167,26 @@ ul {
 }
 
 li {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 1rem;
-    border-radius: 0.5rem;
-    margin-bottom: 0.75rem;
-    font-size: 0.9rem;
-    border-left: 4px solid var(--primary);
+    background: transparent;
+    padding: 1.25rem 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li:last-child {
+    border-bottom: none;
 }
 
 span {
     display: block;
-    font-size: 0.75rem;
-    opacity: 0.6;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    opacity: 1;
+    margin-top: 0.25rem;
 }
