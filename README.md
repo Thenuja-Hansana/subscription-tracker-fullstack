@@ -98,6 +98,4 @@ docker-compose up --build
 ## 📜 Development History
 This project was built with a disciplined engineering approach, featuring a comprehensive development history spread across various phases of implementation.
 
-<div align="center">
-  <sub>Built with ❤️ by Team Antigravity & [User]</sub>
-</div>
+
